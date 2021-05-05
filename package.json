@@ -1,0 +1,39 @@
+{
+  "name": "kyleshovbb-nodejs2021q2",
+  "version": "1.0.0",
+  "description": "Private repository for @kyleshovbb",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test",
+    "build": "rimraf ./build && tsc",
+    "lint": "eslint . --ext .ts",
+    "start": "npm run build && node build/index.js",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/kyleshovbb-NODEJS2021Q2.git"
+  },
+  "author": "Kyleshov Vladimir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/kyleshovbb-NODEJS2021Q2/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/kyleshovbb-NODEJS2021Q2#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}
