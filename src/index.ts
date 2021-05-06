@@ -1,5 +1,6 @@
 import { Command } from 'commander'
 
+import { CaesarShift } from './caesar-shift'
 import { CommandOptions } from './index.types'
 
 const program = new Command()
@@ -14,4 +15,9 @@ program.parse(process.argv)
 
 const options = program.opts() as CommandOptions
 
-console.log(options)
+if (!options.shift || !options.action) {
+  console.error('ERROR: Action and shift are required')
+} else {
+  const caesarShift = new CaesarShift(options.action, options.shift)
+  console.log('SUCCESS', caesarShift.input(), caesarShift.output())
+}
