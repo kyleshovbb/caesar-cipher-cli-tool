@@ -1,25 +1,26 @@
 {
-  "name": "kyleshovbb-nodejs2021q2",
+  "name": "caesar-cipher-cli",
   "version": "1.0.0",
   "description": "Private repository for @kyleshovbb",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "test": "test",
     "build": "rimraf ./build && tsc",
     "lint": "eslint . --ext .ts",
     "start": "npm run build && node build/index.js",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "debug": "npm run build && node build/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rolling-scopes-school/kyleshovbb-NODEJS2021Q2.git"
+    "url": "git+https://github.com/kyleshovbb/caesar-cipher-cli-tool.git"
   },
   "author": "Kyleshov Vladimir",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rolling-scopes-school/kyleshovbb-NODEJS2021Q2/issues"
+    "url": "https://github.com/kyleshovbb/caesar-cipher-cli-tool/issues"
   },
-  "homepage": "https://github.com/rolling-scopes-school/kyleshovbb-NODEJS2021Q2#readme",
+  "homepage": "https://github.com/kyleshovbb/caesar-cipher-cli-tool#readme",
   "dependencies": {
     "commander": "^7.2.0"
   },
