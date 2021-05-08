@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from 'fs'
 import { Command } from 'commander'
 import { pipeline } from 'stream'
@@ -19,11 +20,11 @@ const options = program.opts() as CommandOptions
 
 if (!options.shift || !options.action) {
   console.error('ERROR: Action and shift are required options')
-  // process.exit(9)
+  process.exit(9)
 } else {
   pipeline(
     options.input ? fs.createReadStream(options.input) : process.stdin,
-    new CaesarShiftTransformer(options.action, options.shift),
+    new CaesarShiftTransformer(options.shift, options.action),
     options.output ? fs.createWriteStream(options.output) : process.stdout,
     (err) => {
       if (err) {
@@ -34,5 +35,3 @@ if (!options.shift || !options.action) {
     },
   )
 }
-
-process.exit()

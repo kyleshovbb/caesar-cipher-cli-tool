@@ -15,7 +15,7 @@ export class CaesarShiftTransformer extends Transform {
   private minUpperCaseLetterCode = 'A'.charCodeAt(0)
   private maxUpperCaseLetterCode = 'Z'.charCodeAt(0)
 
-  constructor(action: ActionOption, shift: string) {
+  constructor(shift: string, action: ActionOption) {
     super()
     this.shift = this.getFormattedShift(shift, action)
   }
@@ -35,7 +35,6 @@ export class CaesarShiftTransformer extends Transform {
         decipher += this.getTransformedLetter(letter, this.minLowerCaseLetterCode, this.maxLowerCaseLetterCode)
       }
     }
-
     callback(null, decipher)
   }
 

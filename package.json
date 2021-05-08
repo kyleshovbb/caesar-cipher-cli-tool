@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "Private repository for @kyleshovbb",
   "main": "build/index.js",
+  "bin": {
+    "caesar-cipher": "build/index.js"
+  },
   "scripts": {
     "test": "test",
     "build": "rimraf ./build && tsc",
     "lint": "eslint . --ext .ts",
     "start": "npm run build && node build/index.js",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "debug": "npm run build && node build/index.js"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "repository": {
     "type": "git",
