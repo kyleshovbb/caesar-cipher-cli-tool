@@ -1,8 +1,8 @@
 {
-  "name": "caesar-cipher-cli",
+  "name": "caesar-cipher-cli-tool",
   "version": "1.0.0",
   "description": "Private repository for @kyleshovbb",
-  "main": "src/index.ts",
+  "main": "build/index.js",
   "scripts": {
     "test": "test",
     "build": "rimraf ./build && tsc",
