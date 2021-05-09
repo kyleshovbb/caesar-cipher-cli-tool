@@ -1,7 +1,7 @@
 {
   "name": "caesar-cipher-cli-tool",
   "version": "1.0.0",
-  "description": "Private repository for @kyleshovbb",
+  "description": "CLI tool that will encode and decode a text by Caesar cipher",
   "main": "build/index.js",
   "bin": {
     "caesar-cipher": "build/index.js"
