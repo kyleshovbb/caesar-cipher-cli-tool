@@ -21,7 +21,7 @@ if (!options.shift || !options.action) {
     process.exit(9);
 }
 else {
-    stream_1.pipeline(options.input ? fs_1.default.createReadStream(options.input) : process.stdin, new caesar_shift_transform_1.CaesarShiftTransformer(options.shift, options.action), options.output ? fs_1.default.createWriteStream(options.output) : process.stdout, function (err) {
+    stream_1.pipeline(options.input ? fs_1.default.createReadStream(options.input) : process.stdin, new caesar_shift_transform_1.CaesarShiftTransformer(options.shift, options.action), options.output ? fs_1.default.createWriteStream(options.output, { flags: 'a+' }) : process.stdout, function (err) {
         if (err) {
             console.error('ERROR:', err);
         }

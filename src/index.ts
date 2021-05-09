@@ -25,7 +25,7 @@ if (!options.shift || !options.action) {
   pipeline(
     options.input ? fs.createReadStream(options.input) : process.stdin,
     new CaesarShiftTransformer(options.shift, options.action),
-    options.output ? fs.createWriteStream(options.output) : process.stdout,
+    options.output ? fs.createWriteStream(options.output, { flags: 'a+' }) : process.stdout,
     (err) => {
       if (err) {
         console.error('ERROR:', err)
