@@ -3,8 +3,10 @@ import fs from 'fs'
 import { Command } from 'commander'
 import { pipeline } from 'stream'
 
-import { CommandOptions } from './index.types'
 import { CaesarShiftTransformer } from './caesar-shift.transform'
+import { ActionOption, CommandOptions } from './index.types'
+import { checkAccessToPath, checkRequiredOptions } from './util/validator'
+import { showError } from './util/error'
 
 const program = new Command()
 
@@ -18,20 +20,21 @@ program.parse(process.argv)
 
 const options = program.opts() as CommandOptions
 
-if (!options.shift || !options.action) {
-  console.error('ERROR: Action and shift are required options')
-  process.exit(9)
-} else {
-  pipeline(
-    options.input ? fs.createReadStream(options.input) : process.stdin,
-    new CaesarShiftTransformer(options.shift, options.action),
-    options.output ? fs.createWriteStream(options.output, { flags: 'a+' }) : process.stdout,
-    (err) => {
-      if (err) {
-        console.error('ERROR:', err)
-      } else {
-        console.log('SUCCESS')
-      }
-    },
-  )
-}
+checkRequiredOptions(options)
+checkAccessToPath(options.input, fs.constants.F_OK)
+checkAccessToPath(options.output, fs.constants.F_OK)
+checkAccessToPath(options.input, fs.constants.R_OK)
+checkAccessToPath(options.output, fs.constants.W_OK)
+
+pipeline(
+  options.input ? fs.createReadStream(options.input) : process.stdin,
+  new CaesarShiftTransformer(options.shift as string, options.action as ActionOption),
+  options.output ? fs.createWriteStream(options.output, { flags: 'a+' }) : process.stdout,
+  (err) => {
+    if (err) {
+      showError(err.message)
+    } else {
+      console.log('SUCCESS')
+    }
+  },
+)
