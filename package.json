@@ -1,0 +1,42 @@
+{
+  "name": "caesar-cipher-cli-tool",
+  "version": "1.0.0",
+  "description": "CLI tool that will encode and decode a text by Caesar cipher",
+  "main": "build/index.js",
+  "bin": {
+    "caesar-cipher": "build/index.js"
+  },
+  "scripts": {
+    "test": "test",
+    "build": "rimraf ./build && tsc",
+    "lint": "eslint . --ext .ts",
+    "start": "npm run build && node build/index.js",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyleshovbb/caesar-cipher-cli-tool.git"
+  },
+  "author": "Kyleshov Vladimir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyleshovbb/caesar-cipher-cli-tool/issues"
+  },
+  "homepage": "https://github.com/kyleshovbb/caesar-cipher-cli-tool#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}
